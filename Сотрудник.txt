@@ -1,0 +1,13 @@
+create table if not exists head (
+	id serial primary key
+);
+
+create table if not exists employee (
+ id serial primary key,
+ name_employee varchar(100),
+ department varchar(100),
+ head_id integer references head(id)
+);
+
+alter table head
+	add column employee_id integer references employee(id);
